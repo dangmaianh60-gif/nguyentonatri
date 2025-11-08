@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Nguyên tố Natri (Na)</title>
+    <style>
+        /* Nền gradient rực rỡ */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #ff4d6d;
+            text-align: center;
+            font-size: 3em;
+            text-shadow: 2px 2px #ffe0e0;
+        }
+
+        h2 {
+            color: #1e90ff;
+            margin-top: 25px;
+        }
+
+        p, li {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        button {
+            margin: 10px 5px;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(45deg, #ff6a00, #ee0979);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .info-box {
+            background: #f0f8ff;
+            border-left: 5px solid #1e90ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+
+        .reaction {
+            background: #fff3cd;
+            border-left: 5px solid #ffecb5;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nguyên tố Natri (Na)</h1>
+
+        <div class="info-box">
+            <p><strong>Ký hiệu nguyên tố:</strong> Na</p>
+            <p><strong>Tên nguyên tố tiếng Anh:</strong> Sodium</p>
+            <p><strong>Tên tiếng Việt:</strong> Natri</p>
+            <p><strong>Phiên âm:</strong> /ˈsəʊdiəm/</p>
+            <p><strong>Số thứ tự ô:</strong> 11</p>
+            <p><strong>Nhóm:</strong> IA (1)</p>
+            <p><strong>Chu kỳ:</strong> 3</p>
+            <p><strong>Độ âm điện:</strong> 0.93</p>
+            <p><strong>Nguyên tử khối trung bình:</strong> 22.99</p>
+            <p><strong>Cấu hình electron:</strong> 1s² 2s² 2p⁶ 3s¹</p>
+            <p><strong>Số oxi hóa phổ biến:</strong> +1</p>
+        </div>
+
+        <h2>Ứng dụng của Natri</h2>
+        <ul>
+            <li>Sản xuất xà phòng và thủy tinh</li>
+            <li>Chất làm mát trong lò phản ứng hạt nhân</li>
+            <li>Dược phẩm và hóa chất</li>
+        </ul>
+
+        <h2>Một số phản ứng của Natri</h2>
+        <div class="reaction">2Na + Cl₂ → 2NaCl</div>
+        <div class="reaction">2Na + 2H₂O → 2NaOH + H₂↑</div>
+
+        <h2>Phát âm tên nguyên tố</h2>
+        <button onclick="speak('vi-VN')">Phát âm tiếng Việt</button>
+        <button onclick="speak('en-GB')">Phát âm Anh-Anh</button>
+        <button onclick="speak('en-US')">Phát âm Anh-Mỹ</button>
+    </div>
+
+    <script>
+        function speak(lang) {
+            const msg = new SpeechSynthesisUtterance();
+            msg.text = "Natri";
+            if(lang !== 'vi-VN') msg.text = "Sodium"; // tiếng Anh
+            const voices = window.speechSynthesis.getVoices();
+            msg.voice = voices.find(v => v.lang === lang) || voices[0];
+            msg.rate = 1;
+            window.speechSynthesis.speak(msg);
+        }
+        window.speechSynthesis.onvoiceschanged = () => {};
+    </script>
+</body>
+</html>
